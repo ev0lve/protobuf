@@ -1260,7 +1260,6 @@ class FileDescriptor(DescriptorBase):
     self.message_types_by_name = {}
     self.name = name
     self.package = package
-    self._deprecated_syntax = syntax or "proto2"
     self.serialized_pb = serialized_pb
 
     self.enum_types_by_name = {}
@@ -1268,15 +1267,6 @@ class FileDescriptor(DescriptorBase):
     self.services_by_name = {}
     self.dependencies = (dependencies or [])
     self.public_dependencies = (public_dependencies or [])
-
-  @property
-  def syntax(self):
-    warnings.warn(
-      'descriptor.syntax is deprecated. It will be removed'
-      ' soon. Most usages are checking field descriptors. Consider to use'
-      ' has_presence, is_packed on field descriptors.'
-    )
-    return self._deprecated_syntax
 
   def CopyToProto(self, proto):
     """Copies this to a descriptor_pb2.FileDescriptorProto.
