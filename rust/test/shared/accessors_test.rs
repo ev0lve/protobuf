@@ -34,6 +34,8 @@ fn test_default_accessors() {
             default_bool(): eq(true),
         })
     );
+    assert_that!(msg.default_string(), eq("hello"));
+    assert_that!(msg.default_bytes(), eq("world".as_bytes()));
 }
 
 #[test]
