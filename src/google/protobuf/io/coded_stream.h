@@ -622,7 +622,7 @@ class PROTOBUF_EXPORT CodedInputStream {
 
   static const int kDefaultTotalBytesLimit = INT_MAX;
 
-  static int default_recursion_limit_;  // 100 by default.
+  static const int default_recursion_limit_ = 100;  // 100 by default.
 
   friend class google::protobuf::ZeroCopyCodedInputStream;
   friend class google::protobuf::internal::EpsCopyByteStream;
